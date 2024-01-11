@@ -6,22 +6,46 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'"
   },
   "dependencies": {
+    "axios": "^1.6.5",
+    "bootstrap": "^4.6.0",
+    "classnames": "^2.2.6",
+    "cli-spinners": "^2.6.0",
+    "lodash.debounce": "^4.0.8",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
     "react-bootstrap": "^1.5.1",
-    "bootstrap": "^4.6.0"
+    "react-dom": "^18",
+    "react-helmet-async": "^1.0.9",
+    "react-image-gallery": "^1.0.9",
+    "react-paginate": "^8.2.0",
+    "sass": "^1.69.7"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/react-image-gallery": "^1.0.2",
+    "@types/react-paginate": "^7.1.4",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-next": "14.0.4",
-    "sass": "^1.69.7",
-    "typescript": "^5"
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "3.1.1",
+    "typescript": "^5.3.3"
   }
 }

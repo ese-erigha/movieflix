@@ -1,4 +1,7 @@
-export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
-  return <div>Loading!!!</div>
+'use client';
+
+import Spinner from 'react-bootstrap/Spinner';
+
+export default function LoadingSpinner() {
+  return <Spinner data-testid="spinner" animation="border" />
 }
