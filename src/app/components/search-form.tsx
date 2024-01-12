@@ -1,8 +1,6 @@
 'use client';
 
-import React, {
-  ChangeEvent, useEffect, useCallback, useState,
-} from 'react';
+import React, { ChangeEvent, useEffect, useCallback, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Form from 'react-bootstrap/Form';
 import FormGroup from 'react-bootstrap/FormGroup';

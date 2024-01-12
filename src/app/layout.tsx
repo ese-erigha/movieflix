@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
-import { Suspense } from "react";
+import { Suspense } from 'react';
 import { Inter } from 'next/font/google';
+
+import Providers from './providers';
 import NavBar from './components/navbar';
 import Footer from './components/footer';
 import Loading from './loading';
@@ -18,13 +20,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar />
-        <div data-testid="container" className="container mt-100">
-          <Suspense fallback={<Loading />}>
-            <main data-testid="main">{children}</main>
-          </Suspense>
-          <Footer data-testid="footer" />
-        </div>
+        <Providers>
+          <NavBar />
+          <div data-testid="container" className="container mt-100">
+            <Suspense fallback={<Loading />}>
+              <main data-testid="main">{children}</main>
+            </Suspense>
+            <Footer data-testid="footer" />
+          </div>
+        </Providers>
       </body>
     </html>
   );
