@@ -2,8 +2,8 @@ import { Genre, RouteFilter } from './types';
 
 export const routeFilters: RouteFilter[] = [
   { key: 'popular', value: 'Popular' },
-  { key: 'now_playing', value: 'Now playing' },
-  { key: 'top_rated', value: 'Top rated' },
+  { key: 'now_playing', value: 'Now Playing' },
+  { key: 'top_rated', value: 'Top Rated' },
   { key: 'upcoming', value: 'Upcoming' },
 ];
 
