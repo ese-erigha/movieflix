@@ -27,7 +27,7 @@ export default function MovieCard(props: Props) {
         />
         <Card.Body>
           {movie.vote_average > 0 && (
-            <span className="card-rating text-center">{movie.vote_average}</span>
+            <span className="card-rating text-center">{ parseFloat(movie.vote_average.toFixed(1))}</span>
           )}
           <Card.Title className="mr-4">{movie.title}</Card.Title>
           {genreText && (
