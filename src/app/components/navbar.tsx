@@ -8,24 +8,24 @@ import Container from 'react-bootstrap/Container';
 import SearchForm from './search-form';
 import { getPathsFromCurrentLocation, routeFilters } from '../common/helper';
 import { WEBSITE_NAME, HOME_PATH } from '../common/constants';
-import { type RouteFilter } from '../common/types';
+import { RouteFilter } from '../common/types';
 
 const getRouteFilterKey = (pathname: string) => {
   const { basePath, param } = getPathsFromCurrentLocation(pathname);
   if (basePath === HOME_PATH) return param || routeFilters[0].key;
-  return null;
+  return '';
 };
 
 function buildNavItems(routeFilterList: RouteFilter[]) {
   return routeFilterList.map((item) => {
     const navItemClass = classNames({
       filter: true,
-      // active: item.key === routeFilterKey,
     });
 
+    const path = `${item.key}/1`;
     return (
       <Nav.Item key={item.value}>
-        <Nav.Link href={`/${HOME_PATH}/${item.key}`} className={navItemClass}>
+        <Nav.Link href={`/${HOME_PATH}/${path}`} className={navItemClass}>
           {item.value}
         </Nav.Link>
       </Nav.Item>
@@ -35,7 +35,7 @@ function buildNavItems(routeFilterList: RouteFilter[]) {
 
 export default function NavBar() {
   const pathname = usePathname();
-  const routeFilterKey = getRouteFilterKey(pathname);
+  const routeFilterKey = `${getRouteFilterKey(pathname)}/1`;
   const navItems = buildNavItems(routeFilters);
 
   return (
