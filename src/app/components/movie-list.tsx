@@ -18,9 +18,9 @@ export default function MovieList(props: Props) {
   const { movies, genres, pageCount, initialPage, category } = props;
   const router = useRouter();
 
-  const pageChangeHandler = ({ selected }: { selected: number })=> {
-    router.push(`/movies/${category}/${selected+1}`);
-  }
+  const pageChangeHandler = ({ selected }: { selected: number }) => {
+    router.push(`/movies/${category}/${selected + 1}`);
+  };
 
   return (
     <>
@@ -44,7 +44,6 @@ export default function MovieList(props: Props) {
         // eslint-disable-next-line react/jsx-boolean-value
         disableInitialCallback={true}
         initialPage={initialPage}
-        // forcePage={initialPage}
         containerClassName="pagination"
         activeClassName="active"
       />

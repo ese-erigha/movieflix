@@ -1,13 +1,32 @@
-// import { Helmet } from 'react-helmet';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 import MovieList from '../../../components/movie-list';
-import { getInitialPage } from '../../../common/helper';
-// import { WEBSITE_NAME } from '../../../common/constants';
+import { getInitialPage, routeFilters } from '../../../common/helper';
+import { WEBSITE_NAME } from '../../../common/constants';
 import LoadingSpinner from '../../../components/loading';
 import { findAllGenres } from '../../../api/genreService';
 import { getMovies } from '../../../api/movieService';
 
-export default async function Page({ params }: { params: { category: string; page: string } }) {
+interface Props {
+  params: { category: string; page: string };
+}
+
+export function generateMetadata(
+  { params }: Props,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _parent: ResolvingMetadata,
+): Metadata {
+  const { category } = params;
+  const route = routeFilters.find((item) => item.key === category);
+  return {
+    title: `${route!.value} / ${WEBSITE_NAME}`,
+    icons: {
+      icon: '/favicon.png'
+    },
+  };
+}
+
+export default async function Page({ params }: Props) {
   const { category, page } = params;
   const currentPage = parseInt(page, 10);
 
@@ -16,23 +35,18 @@ export default async function Page({ params }: { params: { category: string; pag
     getMovies({ category, page: currentPage }),
   ]);
 
-  if (!genres?.length || !movieResponse.results?.length || !movieResponse.total_pages) return <LoadingSpinner />;
+  if (!genres?.length || !movieResponse.results?.length || !movieResponse.total_pages)
+    return <LoadingSpinner />;
 
-  // const route = routeFilters.find((item) => item.key === category);
   const initialPage = getInitialPage(page);
 
   return (
-    <>
-      {/* <Helmet>
-        <title>{`${route!.value} / ${WEBSITE_NAME}`}</title>
-      </Helmet> */}
-      <MovieList
+    <MovieList
         movies={movieResponse.results}
         genres={genres}
         pageCount={movieResponse.total_pages}
         initialPage={initialPage}
         category={category}
       />
-    </>
   );
 }
