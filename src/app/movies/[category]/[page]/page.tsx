@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from 'next';
+import { Metadata, ResolvingMetadata } from 'next';
 
 import MovieList from '../../../components/movie-list';
 import { getInitialPage, routeFilters } from '../../../common/helper';
@@ -12,16 +12,16 @@ interface Props {
 }
 
 export function generateMetadata(
-  { params }: Props,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { params }: Props, // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata,
 ): Metadata {
   const { category } = params;
   const route = routeFilters.find((item) => item.key === category);
   return {
     title: `${route!.value} / ${WEBSITE_NAME}`,
+    description: 'Movie Categories',
     icons: {
-      icon: '/favicon.png'
+      icon: '/favicon.png',
     },
   };
 }
@@ -42,11 +42,11 @@ export default async function Page({ params }: Props) {
 
   return (
     <MovieList
-        movies={movieResponse.results}
-        genres={genres}
-        pageCount={movieResponse.total_pages}
-        initialPage={initialPage}
-        category={category}
-      />
+      movies={movieResponse.results}
+      genres={genres}
+      pageCount={movieResponse.total_pages}
+      initialPage={initialPage}
+      category={category}
+    />
   );
 }
