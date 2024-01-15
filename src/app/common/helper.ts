@@ -14,6 +14,8 @@ export const getPathsFromCurrentLocation = (pathname: string) => {
   return { basePath, param };
 };
 
+export const formatVote = (vote: number) => parseFloat(vote.toFixed(1));
+
 export const buildGenreText = (genres: Genre[], movieGenreIds?: number[]) => {
   if (!movieGenreIds?.length) return '';
   return movieGenreIds

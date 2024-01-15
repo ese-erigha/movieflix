@@ -20,3 +20,13 @@ main {
 .mt-100 {
   margin-top: 100px;
 }
+
+.custom-control-input:checked~.custom-control-label::before {
+  color: #fff;
+  border-color: #000000;
+  background-color: #000000;
+}
+
+.badge-warning{
+  color: #000000;
+}
