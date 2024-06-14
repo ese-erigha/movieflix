@@ -1,10 +1,10 @@
 import { Genre, RouteFilter } from './types';
 
 export const routeFilters: RouteFilter[] = [
-  { key: 'popular', value: 'Popular' },
-  { key: 'now_playing', value: 'Now Playing' },
+  // { key: 'popular', value: 'Popular' },
+  // { key: 'now_playing', value: 'Now Playing' },
   { key: 'top_rated', value: 'Top Rated' },
-  { key: 'upcoming', value: 'Upcoming' },
+  // { key: 'upcoming', value: 'Upcoming' },
 ];
 
 export const getPathsFromCurrentLocation = (pathname: string) => {
