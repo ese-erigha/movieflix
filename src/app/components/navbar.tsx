@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import SearchForm from './search-form';
 import { getPathsFromCurrentLocation, routeFilters } from '../common/helper';
 import { WEBSITE_NAME, HOME_PATH } from '../common/constants';
 import { RouteFilter } from '../common/types';
@@ -46,14 +45,6 @@ export default function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav activeKey={`/${HOME_PATH}/${routeFilterKey}`} className="mr-auto">
             {navItems}
-          </Nav>
-          <Nav>
-            <Nav.Item>
-              {/* Fixed issue with spacebar text in search via https://github.com/react-bootstrap/react-bootstrap/issues/2934   */}
-              <div className="nav-link">
-                <SearchForm />
-              </div>
-            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>
