@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 
 import ReactPaginate from 'react-paginate';
 import MovieCard from './movie-card';
-import { Genre, Movie } from '../common/types';
+import { Genre, RecMovie } from '../common/types';
 
 export type Props = {
-  movies: Movie[];
+  movies: RecMovie[];
   genres: Genre[];
   pageCount: number;
   initialPage: number;

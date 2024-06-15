@@ -29,12 +29,21 @@ export type Movie = {
   budget: number;
 };
 
+export type RecMovie = Movie & { match_score: number};
+
 export type MoviesResponse = {
   page: number;
   results: Movie[];
   total_pages: number;
   total_results: number;
 };
+
+export interface MoviesResponseDto extends MoviesResponse {
+  page: number;
+  results: RecMovie[];
+  total_pages: number;
+  total_results: number;
+}
 
 export type State = {
   page?: string;

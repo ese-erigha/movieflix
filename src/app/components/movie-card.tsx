@@ -4,10 +4,10 @@ import Card from 'react-bootstrap/Card';
 import noImage from '../../assets/img/noimage.png';
 import { MOVIE_DB_IMAGE_URL } from '../api/movieService';
 import { buildGenreText, formatVote } from '../common/helper';
-import { Genre, Movie } from '../common/types';
+import { Genre, RecMovie } from '../common/types';
 
 type Props = {
-  movie: Movie;
+  movie: RecMovie;
   genres: Genre[];
 };
 
@@ -28,7 +28,7 @@ export default function MovieCard(props: Props) {
         <Card.Body>
           {movie.vote_average > 0 && (
             <span className="card-rating text-center">
-              {formatVote(movie.vote_average)}
+              {formatVote(movie.match_score)}
             </span>
           )}
           <Card.Title className="mr-4">{movie.title}</Card.Title>

@@ -5,7 +5,7 @@ import { getInitialPage, routeFilters } from '../../../common/helper';
 import { WEBSITE_NAME } from '../../../common/constants';
 import LoadingSpinner from '../../../components/loading';
 import { findAllGenres } from '../../../api/genreService';
-import { getMovies } from '../../../api/movieService';
+import { getTopRatedMovies } from '../../../api/movieService';
 
 interface Props {
   params: { category: string; page: string };
@@ -32,7 +32,7 @@ export default async function Page({ params }: Props) {
 
   const [genres, movieResponse] = await Promise.all([
     findAllGenres(),
-    getMovies({ category, page: currentPage }),
+    getTopRatedMovies({ page: currentPage }),
   ]);
 
   if (!genres?.length || !movieResponse.results?.length || !movieResponse.total_pages)
