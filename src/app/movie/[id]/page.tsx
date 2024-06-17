@@ -2,8 +2,8 @@ import { Metadata, ResolvingMetadata } from 'next';
 
 import { WEBSITE_NAME } from '../../common/constants';
 import LoadingSpinner from '../../components/loading';
-import { getMovie, getActors, getMovieImages, getRecommendations } from '../../api/movieService';
-import { findAllGenres } from '../../api/genreService';
+import { getMovie, getActors, getMovieImages, getRecommendations } from '../../api/movie.service';
+import { findAllGenres } from '../../api/genre.service';
 import BackDrop from '../../components/movie/backdrop';
 import Description from '../../components/movie/description';
 import Cast from '../../components/movie/cast';

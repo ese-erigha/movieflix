@@ -4,7 +4,7 @@
 
 import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
-import { MOVIE_DB_IMAGE_URL } from '../../api/movieService';
+import { MOVIE_DB_IMAGE_URL } from '../../api/movie.service';
 import { formatVote } from '../../common/helper';
 import { Movie } from '../../common/types';
 

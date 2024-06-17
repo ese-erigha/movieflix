@@ -7,7 +7,7 @@ import {
   MoviesResponseDto,
   PersonnelResponse,
 } from '../common/types';
-import { HttpClientType, getAxiosInstance } from './httpClient';
+import { HttpClientType, getAxiosInstance } from './http.client';
 
 const MOVIE_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 const MOVIE_PATH = '/movie';
@@ -34,9 +34,6 @@ const fetchData = async <T>(path: string, config?: AxiosRequestConfig, httpClien
 export const getMovies = (params: { category: string; page: number }) =>
   fetchData<MoviesResponse>(`${MOVIE_PATH}/${params.category}`, { params: { page: params.page } });
 
-export const getTopRatedMovies = (params: { page: number }) =>
-  fetchData<MoviesResponseDto>(`/movies/top-rated/`, { params: { page: params.page } }, HttpClientType.RECOMMENDER);
-
 export const searchMovies = (params: { query: string; page: number }) =>
   fetchData<MoviesResponse>(`/search/movie`, {
     params: { query: params.query, page: params.page },
@@ -53,9 +50,12 @@ export const getMovieImages = (id: string) =>
   fetchData<ImageResponse>(`${MOVIE_PATH}/${id}/images`, { params: { language: 'null' } });
 
 export const getRecommendations = (id: string) =>
-  fetchData<MoviesResponse>(`${MOVIE_PATH}/${id}/recommendations`, {
+  fetchData<MoviesResponseDto>(`${MOVIE_PATH}/${id}/recommendations`, {
     params: {
       language: 'null',
       page: 1,
     },
   });
+
+  export const getTopRatedMovies = (params: { page: number }) =>
+  fetchData<MoviesResponseDto>(`/movies/top-rated/${params.page}`, undefined , HttpClientType.RECOMMENDER);

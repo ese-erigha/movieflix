@@ -3,7 +3,7 @@
 'use client';
 
 import { Personnel } from '../../common/types';
-import { MOVIE_DB_IMAGE_URL } from '../../api/movieService';
+import { MOVIE_DB_IMAGE_URL } from '../../api/movie.service';
 
 export default function Actor(actor: Personnel) {
   const { profile_path, name, character } = actor;

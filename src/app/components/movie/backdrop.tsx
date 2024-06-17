@@ -1,6 +1,6 @@
 'use client';
 
-import { MOVIE_DB_IMAGE_URL } from '../../api/movieService';
+import { MOVIE_DB_IMAGE_URL } from '../../api/movie.service';
 import { Movie } from '../../common/types';
 
 export default function BackDrop({ backdrop_path }: Movie) {

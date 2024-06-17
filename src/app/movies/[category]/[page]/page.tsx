@@ -4,8 +4,8 @@ import MovieList from '../../../components/movie-list';
 import { getInitialPage, routeFilters } from '../../../common/helper';
 import { WEBSITE_NAME } from '../../../common/constants';
 import LoadingSpinner from '../../../components/loading';
-import { findAllGenres } from '../../../api/genreService';
-import { getTopRatedMovies } from '../../../api/movieService';
+import { findAllGenres } from '../../../api/genre.service';
+import { getTopRatedMovies } from '../../../api/movie.service';
 
 interface Props {
   params: { category: string; page: string };

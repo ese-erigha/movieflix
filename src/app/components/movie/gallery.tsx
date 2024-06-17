@@ -1,7 +1,7 @@
 'use client';
 
 import ImageGallery from 'react-image-gallery';
-import { MOVIE_DB_IMAGE_URL } from '../../api/movieService';
+import { MOVIE_DB_IMAGE_URL } from '../../api/movie.service';
 import { Image } from '../../common/types';
 
 import 'react-image-gallery/styles/scss/image-gallery.scss';

@@ -40,9 +40,6 @@ export const getAxiosInstance = (clientType: HttpClientType = HttpClientType.DEF
     httpConfig = recommenderAxiosConfig;
   }
 
-  // eslint-disable-next-line no-console
-  console.log(httpConfig);
-
   return axios.create(httpConfig);
 
 }

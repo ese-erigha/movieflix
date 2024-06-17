@@ -1,10 +1,10 @@
 'use client';
 
-import { Genre, Movie } from '../../common/types';
+import { Genre, RecMovie } from '../../common/types';
 import MovieCard from '../movie-card';
 
 type Props = {
-  movies: Movie[];
+  movies: RecMovie[];
   genres: Genre[];
 };
 export default function RecommendationList(props: Props) {
