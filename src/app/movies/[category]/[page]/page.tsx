@@ -5,7 +5,7 @@ import { getInitialPage, routeFilters } from '../../../common/helper';
 import { WEBSITE_NAME } from '../../../common/constants';
 import LoadingSpinner from '../../../components/loading';
 import { findAllGenres } from '../../../api/genre.service';
-import { getTopRatedMovies } from '../../../api/movie.service';
+import { getTopRatedMovies } from '../../../api/recommender.service';
 
 interface Props {
   params: { category: string; page: string };

@@ -13,11 +13,11 @@ type Props = {
 
 export default function MovieCard(props: Props) {
   const { movie, genres } = props;
-  const genreText = buildGenreText(genres, movie?.genre_ids);
+  const genreText = buildGenreText(genres, movie);
 
   return (
     <Card className="movie-card">
-      <a data-testid="link" href={`/movie/${movie.id}`}>
+      <a data-testid="link" href={`/movie/${movie.id}?recMovie=${movie.local_movie_id}`}>
         <Card.Img
           id="image"
           alt={movie.title}

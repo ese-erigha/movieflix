@@ -29,7 +29,7 @@ export type Movie = {
   budget: number;
 };
 
-export type RecMovie = Movie & { match_score: number};
+export type RecMovie = Movie & { match_score: number; local_movie_id: number; };
 
 export type MoviesResponse = {
   page: number;

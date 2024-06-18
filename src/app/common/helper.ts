@@ -1,4 +1,4 @@
-import { Genre, RouteFilter } from './types';
+import { Genre, RecMovie, RouteFilter } from './types';
 
 export const routeFilters: RouteFilter[] = [
   // { key: 'popular', value: 'Popular' },
@@ -16,9 +16,11 @@ export const getPathsFromCurrentLocation = (pathname: string) => {
 
 export const formatVote = (vote: number) => parseFloat(vote.toFixed(1));
 
-export const buildGenreText = (genres: Genre[], movieGenreIds?: number[]) => {
-  if (!movieGenreIds?.length) return '';
-  return movieGenreIds
+export const buildGenreText = (genres: Genre[], movie: RecMovie) => {
+  const genreIds = movie.genre_ids || (movie.genres ? movie.genres.map((genre)=> genre.id): []);
+  
+  if (!genreIds.length) return '';
+  return genreIds
     .map((id) => {
       const item = genres.find((genre) => genre.id === id);
       return item ? item.name : null;

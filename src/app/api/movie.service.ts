@@ -25,7 +25,7 @@ export const MOVIE_DB_IMAGE_URL: {
   original: `${MOVIE_IMAGE_BASE_URL}original`,
 };
 
-const fetchData = async <T>(path: string, config?: AxiosRequestConfig, httpClient: HttpClientType = HttpClientType.DEFAULT): Promise<T> => {
+export const fetchData = async <T>(path: string, config?: AxiosRequestConfig, httpClient: HttpClientType = HttpClientType.DEFAULT): Promise<T> => {
   const client = getAxiosInstance(httpClient);
   const resp = await client.get<T>(path, config);
   return resp.data as T;
@@ -56,6 +56,3 @@ export const getRecommendations = (id: string) =>
       page: 1,
     },
   });
-
-  export const getTopRatedMovies = (params: { page: number }) =>
-  fetchData<MoviesResponseDto>(`/movies/top-rated/${params.page}`, undefined , HttpClientType.RECOMMENDER);

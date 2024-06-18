@@ -2,7 +2,8 @@ import { Metadata, ResolvingMetadata } from 'next';
 
 import { WEBSITE_NAME } from '../../common/constants';
 import LoadingSpinner from '../../components/loading';
-import { getMovie, getActors, getMovieImages, getRecommendations } from '../../api/movie.service';
+import { getMovie, getActors, getMovieImages } from '../../api/movie.service';
+import { getRecommendationsForMovie } from '../../api/recommender.service';
 import { findAllGenres } from '../../api/genre.service';
 import BackDrop from '../../components/movie/backdrop';
 import Description from '../../components/movie/description';
@@ -12,6 +13,7 @@ import RecommendationList from '../../components/movie/recommendation-list';
 
 interface Props {
   params: { id: string; };
+  searchParams: { recMovie: string; };
 }
 
 export async function generateMetadata(
@@ -32,14 +34,15 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params, searchParams }: Props) {
   const { id } = params;
+  const { recMovie } = searchParams;
   const [movie, actorsResponse, imagesResponse, recommendationsResponse, genres] =
     await Promise.all([
       getMovie(id),
       getActors(id),
       getMovieImages(id),
-      getRecommendations(id),
+      getRecommendationsForMovie(recMovie),
       findAllGenres(),
     ]);
 
