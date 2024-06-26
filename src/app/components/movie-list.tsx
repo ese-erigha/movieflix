@@ -11,15 +11,20 @@ export type Props = {
   genres: Genre[];
   pageCount: number;
   initialPage: number;
-  category: string;
+  category?: string;
+  user?: string;
 };
 
 export default function MovieList(props: Props) {
-  const { movies, genres, pageCount, initialPage, category } = props;
+  const { movies, genres, pageCount, initialPage, category, user } = props;
   const router = useRouter();
 
   const pageChangeHandler = ({ selected }: { selected: number }) => {
-    router.push(`/movies/${category}/${selected + 1}`);
+    let url = `/user/${user}/${selected + 1}`;
+    if(category){
+      url = `/movies/${category}/${selected + 1}`
+    }
+    router.push(url);
   };
 
   return (

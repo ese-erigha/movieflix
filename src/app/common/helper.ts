@@ -29,3 +29,9 @@ export const buildGenreText = (genres: Genre[], movie: RecMovie) => {
 };
 
 export const getInitialPage = (page?: string) => (page ? parseInt(page, 10) - 1 : 0);
+
+export const generateUid = (low: number = 1, high: number = 611) => {
+  const min = Math.ceil(low);
+  const max = Math.floor(high);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

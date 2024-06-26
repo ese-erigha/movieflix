@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
-import { routeFilters } from './common/helper';
+import { generateUid } from './common/helper';
 
 export default function Home() {
-  redirect(`/movies/${routeFilters[0].key}/1`);
+  redirect(`/user/${generateUid()}/1`);
 }

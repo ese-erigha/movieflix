@@ -5,4 +5,6 @@ import { fetchData } from "./movie.service";
 export const getTopRatedMovies = (params: { page: number }) =>
   fetchData<MoviesResponseDto>(`/movies/top-rated/${params.page}`, undefined , HttpClientType.RECOMMENDER);
 
-export const getRecommendationsForMovie = (id: string, page: number = 1) => fetchData<MoviesResponseDto>(`/movie/${id}/${page}`, undefined , HttpClientType.RECOMMENDER)
+export const getRecommendationsForMovie = (id: string, page: number = 1) => fetchData<MoviesResponseDto>(`/movie/${id}/${page}`, undefined , HttpClientType.RECOMMENDER);
+
+export const getRecommendationsForUser = (input: {id: string, page: number; }) => fetchData<MoviesResponseDto>(`/user/${input.id}/${input.page}`, undefined , HttpClientType.RECOMMENDER)
