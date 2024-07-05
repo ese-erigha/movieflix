@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
+import { generateUid } from './common/helper';
 
 export default function Home() {
-  redirect("/redirector");
+  redirect(`/user/${generateUid()}/1`);
 }
