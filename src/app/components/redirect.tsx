@@ -7,8 +7,6 @@ import LoadingSpinner from './loading';
 
 export default function Redirect() {
     const router = useRouter();
-    router.push(`/user/${generateUid()}/1`);
-
     useEffect(() => {
 
         router.push(`/user/${generateUid()}/1`);
