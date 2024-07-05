@@ -3,7 +3,6 @@ import { Metadata, ResolvingMetadata } from 'next';
 import MovieList from '../../../components/movie-list';
 import { getInitialPage, routeFilters } from '../../../common/helper';
 import { WEBSITE_NAME } from '../../../common/constants';
-import LoadingSpinner from '../../../components/loading';
 import { findAllGenres } from '../../../api/genre.service';
 import { getTopRatedMovies } from '../../../api/recommender.service';
 
@@ -36,7 +35,8 @@ export default async function Page({ params }: Props) {
   ]);
 
   if (!genres?.length || !movieResponse.results?.length || !movieResponse.total_pages)
-    return <LoadingSpinner />;
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return <></>;
 
   const initialPage = getInitialPage(page);
 

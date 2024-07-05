@@ -1,7 +1,6 @@
 import { Metadata, ResolvingMetadata } from 'next';
 
 import { WEBSITE_NAME } from '../../common/constants';
-import LoadingSpinner from '../../components/loading';
 import { getMovie, getActors, getMovieImages } from '../../api/movie.service';
 import { getRecommendationsForMovie } from '../../api/recommender.service';
 import { findAllGenres } from '../../api/genre.service';
@@ -46,7 +45,9 @@ export default async function Page({ params, searchParams }: Props) {
       findAllGenres(),
     ]);
 
-  if (!movie || !actorsResponse || !imagesResponse) return <LoadingSpinner />;
+  if (!movie || !actorsResponse || !imagesResponse) 
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return <></>;
 
   return (
     <>
