@@ -40,12 +40,14 @@ export default async function Page({ params }: Props) {
   const initialPage = getInitialPage(page);
 
   return (
-    <MovieList
+    <>
+      <h3 className="list-title list-title-dark mb-4">Recommendations for user with id - {id} </h3>
+      <MovieList
       movies={movieResponse.results}
       genres={genres}
       pageCount={movieResponse.total_pages}
       initialPage={initialPage}
-      user = { id }
-    />
+      user={id} />
+    </>
   );
 }
