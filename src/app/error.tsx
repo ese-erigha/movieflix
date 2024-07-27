@@ -2,7 +2,7 @@
 
 // Error components must be Client Components
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Error({
   error,
@@ -11,15 +11,18 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const [value, setValue] = useState<string>('');
   useEffect(() => {
     // Log the error to an error reporting service
     // eslint-disable-next-line no-console
     console.error(error);
+    setValue(error.message);
   }, [error]);
 
   return (
     <div>
       <h2>Something went wrong!</h2>
+      <div>{ value }</div>
       <button
         type="button"
         onClick={
