@@ -27,9 +27,6 @@ const defaultAxiosConfig = {
 
 const recommenderAxiosConfig = {
   baseURL: config.RECOMMENDER_API_BASE_URL,
-  headers: {
-    Authorization: `Bearer ${config.RECOMMENDER_API_TOKEN}`
-  },
 };
 
 export const getAxiosInstance = (clientType: HttpClientType = HttpClientType.DEFAULT)=> {
